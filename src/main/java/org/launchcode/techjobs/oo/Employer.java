@@ -22,7 +22,7 @@ public class Employer {
 
     @Override
     public String toString() {
-        return value;
+        return value == null ? "Data not available" : value ;
     }
 
     @Override
