@@ -16,7 +16,7 @@ public class Job {
     @Override
     public String toString() {
         return "\nID: " + id +
-                "\nName: " + (name  == null ? "Data not available" : name) +
+                "\nName: " + (name == null || name.isBlank() ? "Data not available" : name) +
                 "\nEmployer: " + employer +
                 "\nLocation: " + location +
                 "\nPosition Type: " + positionType +

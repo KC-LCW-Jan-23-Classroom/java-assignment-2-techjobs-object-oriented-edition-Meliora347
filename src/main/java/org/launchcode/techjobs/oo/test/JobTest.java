@@ -47,15 +47,15 @@ public class JobTest {
 
 
         String jobString = job.toString() ;
-        Assert.assertTrue(jobString.charAt(0)== '\n');
-        Assert.assertTrue(jobString.charAt(jobString.lastIndexOf(jobString))== '\n');
+        Assert.assertEquals(jobString.charAt(0), '\n');
+        Assert.assertEquals(jobString.charAt(jobString.lastIndexOf(jobString)), '\n');
 
     }
 
     @Test
     public void testToStringContainsCorrectLabelsAndData(){
             Job job = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
-            String expectedString = "\nID: 1" +
+            String expectedString = "\nID: " + job.getId() +
                     "\nName: Product tester" +
                     "\nEmployer: ACME" +
                     "\nLocation: Desert" +
@@ -68,7 +68,7 @@ public class JobTest {
     @Test
     public void testToStringHandlesEmptyField(){
         Job job = new Job(null, new Employer(null), new Location(null), new PositionType(null), new CoreCompetency(null));
-        String expectedString = "\nID: 1" +
+        String expectedString = "\nID: "+ job.getId() +
                 "\nName: Data not available" +
                 "\nEmployer: Data not available" +
                 "\nLocation: Data not available" +
@@ -76,6 +76,7 @@ public class JobTest {
                 "\nCore Competency: Data not available" +
                 "\n";
         Assert.assertEquals(expectedString, job.toString());
+
     }
 
 }
